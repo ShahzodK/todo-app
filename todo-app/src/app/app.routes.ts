@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './auth/guards/auth.guard';
 
 export const routes: Routes = [
     { 
@@ -15,6 +16,17 @@ export const routes: Routes = [
                 loadComponent:() => import('./auth/pages/login/login.component').then(mod => mod.LoginComponent)
             }
         ]
+    },
+    { 
+        path: 'home',
+        children: [
+            {
+                path: 'tasks',
+                title: 'Tasks',
+                loadComponent:() => import('./home/pages/tasks-page/tasks-page.component').then(mod => mod.TasksPageComponent),
+            }
+        ],
+        canMatch: [authGuard]
     },
     {
         path: '**',
