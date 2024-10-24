@@ -1,0 +1,26 @@
+{
+    "Auth": {
+        "login": {
+            "title": "Login"
+        },
+        "registration": {
+            "title": "Registration",
+            "success": "Registered succesfully, please, login",
+            "valid-email": "Email should be in valid format",
+            "valid-password": "Password must contains at least 6 symbols",
+            "match-password": "Confirm password should match with password field"
+        },
+        "email": "Email",
+        "password": "Password",
+        "name": "Name",
+        "confirm-password": "Confirm password",
+        "submit": "Submit",
+        "no-account": "Don't have an account yet?",
+        "have-account": "Already have an account?",
+        "create": "Create"
+    },
+    "Errors": {
+        "default": "Something went wrong, try again",
+        "401": "Unauthorized access"
+    }
+}

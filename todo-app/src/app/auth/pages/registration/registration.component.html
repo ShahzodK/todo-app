@@ -1,0 +1,57 @@
+<section class="registration auth">
+    <div class="container">
+        <div class="auth_content">
+            <div class="auth-title">
+                <h2>{{'Auth.registration.title' | translate}}</h2>
+            </div>
+            <form class="auth_form" [formGroup]="registrationForm"> 
+                
+                <mat-form-field>
+                    <mat-label>{{'Auth.name' | translate}}</mat-label>
+                    <input matInput type="text" formControlName="name">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>{{'Auth.email' | translate}}</mat-label>
+                    <input matInput type="text" formControlName="email">
+                    <mat-error 
+                        *ngIf="registrationForm.get('email')?.invalid 
+                        && (registrationForm.get('email')?.dirty 
+                        || registrationForm.get('email')?.touched)">
+                        {{"Auth.registration.valid-email" | translate}}
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>{{'Auth.password' | translate}}</mat-label>
+                    <input matInput type="password" formControlName="password">
+                    <mat-error 
+                        *ngIf="registrationForm.get('password')?.invalid 
+                        && (registrationForm.get('password')?.dirty 
+                        || registrationForm.get('password')?.touched)">
+                        {{"Auth.registration.valid-password" | translate}}
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>{{'Auth.confirm-password' | translate}}</mat-label>
+                    <input matInput type="password" formControlName="confirmPassword">
+                    <mat-error 
+                        *ngIf="registrationForm.get('confirmPassword')?.invalid 
+                        && (registrationForm.get('confirmPassword')?.dirty 
+                        || registrationForm.get('confirmPassword')?.touched)">
+                        {{"Auth.registration.match-password" | translate}}
+                    </mat-error>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" (click)="register()" [disabled]="loadingService.loading$ | async">
+                    {{'Auth.submit' | translate}}
+                </button>
+            </form>
+            <div class="auth_footer">
+                <span>{{'Auth.have-account' | translate}}</span>
+                <a routerLink="/auth/login">{{'Auth.login.title' | translate}}</a>
+            </div>
+        </div>
+    </div>
+</section>

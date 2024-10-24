@@ -1,0 +1,26 @@
+<section class="login">
+    <div class="container">
+        <div class="auth_content">
+            <div class="auth-title">
+                <h2>{{'Auth.login.title' | translate}}</h2>
+            </div>
+            <form class="auth_form" [formGroup]="loginForm"> 
+                <mat-form-field>
+                    <mat-label>{{'Auth.email' | translate}}</mat-label>
+                    <input matInput type="text" formControlName="email">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>{{'Auth.password' | translate}}</mat-label>
+                    <input matInput type="password" formControlName="password">
+                </mat-form-field>
+                <button mat-raised-button color="primary" (click)="login()"  [disabled]="loadingService.loading$ | async">
+                    {{'Auth.submit' | translate}}
+                </button>
+            </form>
+            <div class="auth_footer">
+                <span>{{'Auth.no-account' | translate}}</span>
+                <a routerLink="/auth/registration">{{'Create' | translate}}</a>
+            </div>
+        </div>
+    </div>
+</section>
