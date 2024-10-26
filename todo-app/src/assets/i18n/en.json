@@ -22,5 +22,23 @@
     "Errors": {
         "default": "Something went wrong, try again",
         "401": "Unauthorized access"
-    }
+    },
+    "Task": {
+        "create": "Create",
+        "create-task": "Create task",
+        "task-deleted": "Task deleted",
+        "delete-task": "Delete task", 
+        "edit": "Edit",
+        "cancel": "Cancel",
+        "description": "Description",
+        "completed": "Completed",
+        "title": "title",
+        "no-task": "No task found",
+        "no": "No",
+        "yes-delete": "Yes, delete",
+        "are-you-sure-delete": "Are you sure you want to delete {{title}} task?",
+        "new-task": "New Task",
+        "duplicate": "This title already exists. Please choose a different title."
+    },
+    "Translate": "Language"
 }

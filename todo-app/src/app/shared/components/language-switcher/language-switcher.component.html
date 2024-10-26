@@ -1,0 +1,11 @@
+<div class="language-switcher">
+    <mat-form-field>
+        <mat-label>{{'Language' | translate}}</mat-label>
+        <mat-select [(value)]="currentLang" (selectionChange)="updateLanguage($event.value)">
+            <mat-option [value]="translate.currentLang">{{translate.currentLang}}</mat-option>
+            <ng-container *ngFor="let lang of env.LANGUAGES">
+                <mat-option *ngIf="translate.currentLang !== lang" [value]="lang">{{lang}}</mat-option>
+            </ng-container>
+        </mat-select>
+    </mat-form-field>
+</div>

@@ -1,0 +1,44 @@
+{
+    "Auth": {
+        "login": {
+            "title": "Kirish"
+        },
+        "registration": {
+            "title": "Ro'yxatdan o'tish",
+            "success": "Muvaffaqiyatli ro'yxatdan o'tdingiz, iltimos, qayta kiring",
+            "valid-email": "Email to'g'ri formatda bo'lishi kerak",
+            "valid-password": "Parol kamida 6 ta belgi bo'lishi kerak",
+            "match-password": "Parolni tasdiqlash parol maydoni bilan mos kelishi kerak"
+        },
+        "email": "Email",
+        "password": "Parol",
+        "name": "Ism",
+        "confirm-password": "Parolni tasdiqlang",
+        "submit": "Yuborish",
+        "no-account": "Hali akkauntingiz yo'qmi?",
+        "have-account": "Akkauntingiz bormi?",
+        "create": "Yaratish"
+    },
+    "Errors": {
+        "default": "Nimadir xato ketdi, qayta urinib ko'ring",
+        "401": "Registratsiyasiz kirish"
+    },
+    "Task": {
+        "create": "Yaratish",
+        "create-task": "Vazifa yaratish",
+        "task-deleted": "Vazifa o'chirildi",
+        "delete-task": "Vazifani o'chirish",
+        "edit": "Tahrirlash",
+        "cancel": "Bekor qilish",
+        "description": "Tavsif",
+        "completed": "Bajarildi",
+        "title": "nomi",
+        "no-task": "Vazifa topilmadi",
+        "no": "Yo'q",
+        "yes-delete": "Ha, o'chirish",
+        "are-you-sure-delete": "Siz {{title}} vazifasini o'chirishga ishonchingiz komilmi?",
+        "new-task": "Yangi vazifa",
+        "duplicate": "Bu nom allaqachon mavjud. Iltimos, boshqa nom tanlang."
+    },
+    "Translate": "Til"
+}
