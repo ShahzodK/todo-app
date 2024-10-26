@@ -1,0 +1,45 @@
+.home {
+    &_tasks {
+        list-style-type: none;
+        padding: 0;
+        &_wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            align-items: center;
+            background: #ccc;
+            padding: 20px;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 100px;
+            border-radius: 10px;
+        }
+        &_block {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            background: #dbe2ef;
+            width: 300px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            p {
+                margin: 0;
+            }
+            &_content {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-end;
+                gap: 10px;
+                &_user {
+                    align-self: flex-start;
+                    margin-left: 20px;
+                }
+            }
+            &_icon {
+                cursor: pointer;
+            }
+        }
+    }
+}

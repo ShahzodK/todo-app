@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
@@ -25,7 +25,8 @@ import { AsyncPipe, NgIf } from '@angular/common';
     NgIf
   ],
   templateUrl: './registration.component.html',
-  styleUrl: './registration.component.scss'
+  styleUrl: './registration.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RegistrationComponent implements OnDestroy {
   public unsub$: Subject<boolean> = new Subject<boolean>();
@@ -66,15 +67,7 @@ export class RegistrationComponent implements OnDestroy {
             this.toastr.success(text)
           })
           this.loadingService.stopLoading();
-        },
-        error: (error) => {
-          this.translate.get('Errors.default').pipe(
-            take(1)
-          ).subscribe((text) => {
-            this.toastr.error(error.message, text);
-            this.loadingService.stopLoading();
-          })
-        },
+        }
       });
     }
   }

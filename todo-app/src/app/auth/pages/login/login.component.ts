@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
@@ -23,7 +23,8 @@ import { AsyncPipe } from '@angular/common';
     AsyncPipe
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnDestroy {
   public unsub$: Subject<boolean> = new Subject<boolean>();
@@ -56,24 +57,10 @@ export class LoginComponent implements OnDestroy {
         next: (data) => {
           this.loadingService.stopLoading();
           localStorage.setItem('token', data.access_token);
-          this.router.navigate(['/tasks']);
+          this.router.navigate(['/home/tasks']);
         },
         error: (error) => {
           this.loadingService.stopLoading();
-          if(error.status === 401) {
-            this.translate.get('Errors.401').pipe(
-              take(1)
-            ).subscribe((text) => {
-              this.toastr.error(text)
-            })
-          }
-          else {
-            this.translate.get('Errors.default').pipe(
-              take(1)
-            ).subscribe((text) => {
-              this.toastr.error(error.message, text)
-            })
-          }
         }
       });
     }

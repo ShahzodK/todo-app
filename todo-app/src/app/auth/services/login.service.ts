@@ -19,7 +19,10 @@ export class LoginService {
 
   public register(data: userRegistration): Observable<userRegistrationRes> {
     return this.http.post<userRegistrationRes>(environment.MAIN_URL + 'register', data);
+  }
 
+  public getToken(): string {
+    return localStorage.getItem('token') || '';
   }
 
 }

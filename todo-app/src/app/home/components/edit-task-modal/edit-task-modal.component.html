@@ -1,0 +1,22 @@
+
+<h2 mat-dialog-title>Edit Task</h2>
+<mat-dialog-content>
+    <form [formGroup]="taskForm">
+        <mat-form-field>
+          <input matInput type="text" id="title" formControlName="title">
+          <mat-label>{{'Task.title' | translate}}:</mat-label>
+        </mat-form-field>
+        <mat-form-field>
+          <textarea matInput type="text" id="description" formControlName="description"></textarea>
+          <mat-label>{{'Task.description' | translate}}:</mat-label>
+        </mat-form-field>
+        <mat-checkbox [checked]="taskForm.get('completed')?.value!" formControlName="completed">{{'Task.completed' | translate}}:</mat-checkbox>
+      </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close color="warn">{{'Task.cancel' | translate}}</button>
+    <button mat-raised-button color="primary" (click)="editTask()">
+        <span>{{'Task.edit' | translate}}</span>
+    </button>
+</mat-dialog-actions>

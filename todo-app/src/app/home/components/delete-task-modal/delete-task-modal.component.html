@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>{{'Delete Task' | translate}}</h2>
+<mat-dialog-content>
+    <p>
+        {{"Task.are-you-sure-delete" | translate : {title: data.task.title} }}
+    </p>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close color="primary" [disabled]="loadingService.loading$ | async">{{'Task.no' | translate}}</button>
+    <button mat-raised-button color="warn" (click)="deleteTask(data.task.id)">
+        <span>{{"Task.yes-delete" | translate}}</span>
+    </button>
+</mat-dialog-actions>
