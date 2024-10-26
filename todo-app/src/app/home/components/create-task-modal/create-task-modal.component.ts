@@ -46,7 +46,7 @@ export class CreateTaskModalComponent implements OnInit {
   public unsub$: Subject<boolean> = new Subject<boolean>();
 
   public taskForm = new FormGroup({
-    title: new FormControl<string>('',[ Validators.required, Validators.maxLength(15)]),
+    title: new FormControl<string>('',[ Validators.required, Validators.maxLength(30)]),
     description: new FormControl<string>('', [ Validators.required ]),
   });
 

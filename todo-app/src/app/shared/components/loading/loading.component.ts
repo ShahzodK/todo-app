@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterContentChecked, ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { LoadingService } from '../../services/loading.service';
 import { Observable } from 'rxjs';
 import { AsyncPipe, NgIf } from '@angular/common';
@@ -13,7 +13,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     AsyncPipe
   ],
   templateUrl: './loading.component.html',
-  styleUrl: './loading.component.scss'
+  styleUrl: './loading.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoadingComponent {
   public loading$: Observable<boolean>;

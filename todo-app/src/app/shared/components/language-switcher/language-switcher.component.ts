@@ -17,15 +17,29 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     TranslateModule
   ],
   templateUrl: './language-switcher.component.html',
-  styleUrl: './language-switcher.component.scss'
+  styleUrl: './language-switcher.component.scss',
 })
-export class LanguageSwitcherComponent {
+export class LanguageSwitcherComponent implements OnInit {
   @ViewChild('langDropdown') langDropdown!: ElementRef;
-  public env = environment;
-  public currentLang = localStorage.getItem('lang');
+  public readonly env = environment;
+  public currentLang!: string;
   constructor(
               public translate: TranslateService,
             ) {}
+
+  ngOnInit(): void {
+    const usedLanguage = localStorage.getItem('lang');
+    if(usedLanguage && environment.LANGUAGES.some((lang) => lang === usedLanguage)) {
+      this.currentLang = usedLanguage;
+      this.translate.use(usedLanguage)
+    }
+    else {
+      localStorage.setItem('lang', environment.DEFAULT_LOCALE);
+      this.currentLang = localStorage.getItem('lang') || environment.DEFAULT_LOCALE;
+      this.translate.use(environment.DEFAULT_LOCALE);
+    };
+  }
+
   public updateLanguage(language: string) {
     this.translate.use(language);
     localStorage.setItem('lang', language);

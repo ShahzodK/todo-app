@@ -10,10 +10,12 @@
                         <ng-container *ngIf="tasks.length > 0; else noTasksFound">
                             <ng-container *ngFor="let task of tasks">
                                 <li class="home_tasks_block" [appTaskCompleteness]="task.completed">
-                                    <div class="home_tasks_block_content" [style.align-items]="'center'">
+                                    <div class="home_tasks_block_content" [style.align-items]="'flex-start'">
                                         <span>{{task.title}}</span>
                                         <mat-checkbox [checked]="task.completed ? true : false" (click)="updateTaskCompleteness(task)" #checkbox>
-                                            {{task.description}}
+                                            <span [matTooltip]="task.description">
+                                                {{task.description | trucateText : 20}}
+                                            </span>
                                         </mat-checkbox>
                                     </div>
                                     <div class="home_tasks_block_content">

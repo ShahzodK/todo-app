@@ -15,6 +15,8 @@ import { selectAllTasks } from '../../../store/selectors/tasks.selectors';
 import { loadTasks, updateTask } from '../../../store/actions/tasks.actions';
 import { LoadingService } from '../../../shared/services/loading.service';
 import { TaskCompletenessDirective } from '../../directives/task-completeness.directive';
+import { TrucateTextPipe } from '../../../shared/pipes/trucate-text.pipe';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-tasks-page',
@@ -29,7 +31,9 @@ import { TaskCompletenessDirective } from '../../directives/task-completeness.di
     MatCheckboxModule,
     MatButtonModule,
     TranslateModule,
-    TaskCompletenessDirective
+    TaskCompletenessDirective,
+    TrucateTextPipe,
+    MatTooltipModule
   ],
   templateUrl: './tasks-page.component.html',
   styleUrls: ['./tasks-page.component.scss'],
